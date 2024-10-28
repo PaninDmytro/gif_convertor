@@ -21,7 +21,7 @@ Swarm.
    Before running the containers, build the Docker image using the following command:
 
    ```bash
-   docker build -t gif_convertator_image .
+   docker build -t gif_convertor_image .
    ```
 
 2. \*\*Initialize Docker Swarm
@@ -98,5 +98,5 @@ npm install
 After installing the dependencies, try building the Docker image again:
 
 ```bash
-docker build -t gif_convertator_image .
+docker build -t gif_convertor_image .
 ```
