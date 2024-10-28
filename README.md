@@ -53,7 +53,7 @@ docker swarm init
 2. **Deploy the stack using the Docker Compose file:**
 
 ```bash
-docker stack deploy -c docker-compose.yml gif_convertator_stack
+docker stack deploy -c docker-compose.yml gif_convertor_stack
 ```
 
 This will run the services in Docker Swarm, allowing you to scale the web and worker services.
