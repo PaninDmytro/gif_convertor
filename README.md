@@ -21,7 +21,7 @@ Swarm.
    Before running the containers, build the Docker image using the following command:
 
    ```bash
-   docker build -t paired_app_image .
+   docker build -t gif_convertator_image .
    ```
 
 2. \*\*Initialize Docker Swarm
