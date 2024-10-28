@@ -1,13 +1,15 @@
 const cypress = require("cypress");
 
-const username = "TestUser6000@wso2.com";
+const usersCount = 100;
+const startingNumber = 10;
+const usernamePrefix = "TestUser";
+
 const testMethods = [{ spec: "cypress/e2e/load-test/load-test.cy.ts" }];
 
 async function runTests(username) {
-  console.log("Running tests for:", username);
   const results = {};
 
-  for (const { spec } of testMethods) {
+  for (const { name, spec } of testMethods) {
     try {
       const testResults = await cypress.run({
         headless: true,
@@ -17,21 +19,21 @@ async function runTests(username) {
           perfUsername: username,
         },
         exit: true,
+        name: name,
       });
-      console.log(`Tests completed for user ${username}`);
-      results[spec] = testResults.totalFailed === 0 ? "Pass" : "Fail";
+      results[name] = testResults.totalFailed === 0 ? "Pass" : "Fail";
     } catch (error) {
-      console.error(`Error running tests for user ${username}:`, error);
-      results[spec] = "Error";
+      console.error(`Error running ${name} tests for user ${username}:`, error);
+      results[name] = "Error";
     }
   }
-
-  return results;
 }
 
 async function runTestsAsync() {
-  console.log(`Running test for a single user: ${username}`);
-  await runTests(username);
+  for (let i = startingNumber; i < startingNumber + usersCount; i++) {
+    const username = `${usernamePrefix}${i}@gmail.com`;
+    runTests(username);
+  }
 }
 
 runTestsAsync();
