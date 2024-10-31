@@ -67,7 +67,13 @@ To run tests follow these steps:
 cd cypress
 ```
 
-2. **Run the Cypress tests:**
+2. **Install dependencies
+
+```bash
+npm install
+```
+
+3. **Run the Cypress tests:**
 
 ```bash
 npm run start:test
