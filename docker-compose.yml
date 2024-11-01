@@ -2,23 +2,22 @@ version: "3.8"
 
 services:
   web:
+    container_name: web
     image: gif_convertor_image
     ports:
       - "4200:4200"
       - "3000:3000"
-    deploy:
-      replicas: 1
-      resources:
-        limits:
-          cpus: "1.0"
-          memory: 2G
-      restart_policy:
-        condition: on-failure
+    volumes:
+      - ./shared-temp-storage:/temp-storage
+    depends_on:
+      - redis
     networks:
       - app-network
 
   worker:
-    image: gif_convertor_image
+    build:
+      context: ./workers
+      dockerfile: Dockerfile
     deploy:
       replicas: 5
       resources:
@@ -27,10 +26,23 @@ services:
           memory: 2G
       restart_policy:
         condition: on-failure
+    volumes:
+      - ./shared-temp-storage:/temp-storage
+    depends_on:
+      - redis
+      - web
+    networks:
+      - app-network
+
+  redis:
+    container_name: redis
+    image: redis:alpine
+    ports:
+      - "6379:6379"
     networks:
       - app-network
 
 networks:
   app-network:
-    driver: overlay
+    driver: bridge
     attachable: true
