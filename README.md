@@ -59,7 +59,6 @@ docker stack deploy -c docker-compose.yml gif_convertor_stack
 This will run the services in Docker Swarm, allowing you to scale the web and worker services.
 
 ## Running Tests
-
 To run tests follow these steps:
 
 1. **Navigate to the Cypress directory:**
@@ -68,7 +67,7 @@ To run tests follow these steps:
 cd cypress
 ```
 
-2. **Install dependencies:**
+2. **Install dependencies
 
 ```bash
 npm install
