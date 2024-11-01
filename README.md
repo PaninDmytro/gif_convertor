@@ -9,6 +9,7 @@ Swarm.
 - `/backend/`: Contains the backend (Express) service
 - `/frontend/`: Contains the frontend (Angular) service
 - `/cypress/`: Contains the cypress tests
+- `/workers/`: Contains the workers (BullMQ) service
 
 - `Dockerfile`: Docker build instructions for the combined frontend and backend services.
 - `docker-compose.yml`: Docker Compose configuration for running the services in containers, with the ability to scale
