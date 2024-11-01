@@ -7,7 +7,7 @@ import { deleteTempFiles } from "./services/cypress.service.mjs";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const spec = "cypress/e2e/load-test/load-test.cy.ts";
+const spec = "cypress/e2e/load-test/load-test.cy.js";
 const tempStorageDir = path.resolve(__dirname, "../shared-temp-storage");
 
 cypress

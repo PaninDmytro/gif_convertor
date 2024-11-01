@@ -4,7 +4,7 @@ describe("Load testing", () => {
   it("should load 100 times and delete each GIF", () => {
     const videoFilePath = "demo.mp4";
     const numberOfRepetitions = 100;
-    const requests: Cypress.Chainable[] = [];
+    const requests = [];
 
     for (let i = 0; i < numberOfRepetitions; i++) {
       requests.push(
